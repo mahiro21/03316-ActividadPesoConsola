@@ -36,7 +36,7 @@ public class Main {
 
         boolean error;
         int dia;
-        double Peso;
+        double peso;
 
         //Inicio bucle
         dia = 1;
