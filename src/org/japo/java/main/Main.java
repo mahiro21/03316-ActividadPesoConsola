@@ -37,6 +37,8 @@ public class Main {
         boolean error;
         int dia;
         double peso;
+        double pesoT = 0;
+        double pesoM;
 
         //Inicio bucle
         dia = 1;
@@ -44,12 +46,12 @@ public class Main {
         do {
             try {
                 System.out.printf("Peso día %d ...: ", dia);
-                Peso = SCN.nextDouble();
-                
+                peso = SCN.nextDouble();
 
-                if (Peso <= MAX && Peso >= MIN) {
+                if (peso <= MAX && peso >= MIN) {
                     error = false;
                     dia++;
+                    pesoT += peso;
 
                 } else {
                     error = true;
@@ -60,8 +62,14 @@ public class Main {
                 error = true;
                 System.out.println("valor incorrecto");
                 SCN.nextLine();
+            } finally {
+                //Limpiar buffer
+                SCN.nextLine();
             }
+
         } while (error == true || (dia <= 7));
+        pesoM = pesoT / 7;
+        System.out.printf(Locale.ENGLISH, "Media del peso ...: %.2f%n", pesoM);
         System.out.println("END");
 
     }
